@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Solana Escrow Engine - Web2 to Web3 Pattern Translation" />
+    <title>Escrow Engine | Solana Devnet</title>
+    <script>
+      // Early error suppression for wallet extension errors
+      // This runs before any other scripts to catch extension injection errors
+      (function() {
+        var originalError = window.onerror;
+        window.onerror = function(message, source, lineno, colno, error) {
+          if (
+            (typeof message === 'string' && message.includes('Origin not allowed')) ||
+            (typeof source === 'string' && source.includes('chrome-extension://'))
+          ) {
+            return true; // Suppress the error
+          }
+          if (originalError) {
+            return originalError.apply(this, arguments);
+          }
+          return false;
+        };
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
