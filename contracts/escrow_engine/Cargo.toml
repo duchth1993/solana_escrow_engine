@@ -1,0 +1,22 @@
+[package]
+name = "escrow_engine"
+version = "0.1.0"
+edition = "2021"
+description = "Solana Escrow Engine - Web2 to Web3 Pattern Translation"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+solana-program = "1.18"
+borsh = "0.10"
+borsh-derive = "0.10"
+
+[dev-dependencies]
+solana-program-test = "1.18"
+solana-sdk = "1.18"
+tokio = { version = "1", features = ["full"] }
+
+[features]
+no-entrypoint = []
